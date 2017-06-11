@@ -14,7 +14,7 @@ $ go generate
 $ go build
 ```
 
-See [contrib](contrib) directory for sample systemd service.
+Refer to the [contrib](contrib) directory for a sample systemd service.
 
 ## Configuration
 
