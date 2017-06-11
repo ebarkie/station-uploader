@@ -1,0 +1,11 @@
+[Unit]
+Description=Weather station uploader
+
+[Service]
+Type=simple
+ExecStart=/opt/station-uploader -config /opt/station-uploader/station-uploader.yaml
+User=wx
+Group=wx
+
+[Install]
+WantedBy=multi-user.target

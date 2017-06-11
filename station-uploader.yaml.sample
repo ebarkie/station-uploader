@@ -1,0 +1,31 @@
+station:
+  host: wx:8080
+  lat: 35.7
+  lon: -78.7
+  type: DvsVP2+
+
+uploaders:
+#  - name: APRS-IS
+#    type: aprs-is
+#    interval: 3600
+#    dial: rotate.aprs.net:14580
+#    id: N0CALL-13
+#    password: -1
+
+#  - name: APRS-RF
+#    type: aprs
+#    interval: 3600
+#    dial: direwolf:8001
+#    id: N0CALL-13
+
+#  - name: CWOP
+#    type: aprs-is
+#    interval: 300
+#    dial: cwop.aprs.net:14580
+#    id: aWnnnn
+
+#  - name: Wunderground
+#    type: wu
+#    interval: 0
+#    id: Kssssssnn
+#    password: deadbeef
