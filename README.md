@@ -33,7 +33,7 @@ uploaders:
   - name: APRS-IS
     type: aprs-is
     interval: 3600
-    dial: rotate.aprs.net:14580
+    dial: tcp://rotate.aprs.net:14580
     id: N0CALL-13
     password: -1
 
@@ -46,7 +46,7 @@ uploaders:
   - name: CWOP
     type: aprs-is
     interval: 300
-    dial: cwop.aprs.net:14580
+    dial: tcp://cwop.aprs.net:14580
     id: aWnnnn
 
   - name: Wunderground
