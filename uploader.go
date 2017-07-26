@@ -4,7 +4,7 @@
 
 package main
 
-// Uploader is an interface for uploading observationd data to various
+// Uploader is an interface for uploading observation data to various
 // places like ham radio APRS, Internet APRS, or various Internet REST
 // services.
 type Uploader interface {
