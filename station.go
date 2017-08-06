@@ -92,7 +92,7 @@ func streamEvents(serverAddress string, obss chan<- obs) (err error) {
 			case "archive":
 				err = json.Unmarshal([]byte(d), &o.Archive)
 			case "loop":
-				err = json.Unmarshal([]byte(d), &o)
+				err = json.Unmarshal([]byte(d), &o.Loop)
 				obss <- o
 			}
 			if err != nil {
