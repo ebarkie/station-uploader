@@ -43,7 +43,7 @@ func getLastArchive(serverAddress string, begin time.Time) (a weatherlink.Archiv
 
 	var as []weatherlink.Archive
 	err = json.NewDecoder(resp.Body).Decode(&as)
-	if (err != nil) && (len(as) > 0) {
+	if err != nil && len(as) > 0 {
 		a = as[0]
 	}
 
