@@ -61,7 +61,7 @@ func (APRSUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) 
 		case "APRS":
 			a.Dst = aprs.Address{Call: "APZ001"} // Experimental v0.0.1
 			//a.Path = aprs.Path{aprs.Address{Call: "WIDE1", SSID: 1}, aprs.Address{Call: "WIDE2", SSID: 1}}
-			dial = func() error { return a.SendTNC(up.Dial) }
+			dial = func() error { return a.SendKISS(up.Dial) }
 		case "APRS-IS":
 			a.Dst = aprs.Address{Call: "APRS"}
 			a.Path = aprs.Path{aprs.Address{Call: "TCPIP", Repeated: true}}
