@@ -37,21 +37,21 @@ func (APRSUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) 
 		}
 
 		// Build APRS text payload
-		w.Clear()
-		w.Altimeter(o.Loop.Bar.Altimeter)
-		w.Humidity(o.Loop.OutHumidity)
-		w.RainRate(o.Loop.Rain.Rate)
-		w.RainLast24Hours(o.Loop.Rain.Accum.Last24Hours)
-		w.RainToday(o.Loop.Rain.Accum.Today)
-		w.SolarRadiation(o.Loop.SolarRad)
-		w.Temperature(o.Loop.OutTemp)
+		w.Zero()
+		w.Altimeter = o.Loop.Bar.Altimeter
+		w.Humidity = o.Loop.OutHumidity
+		w.RainRate = o.Loop.Rain.Rate
+		w.RainLast24Hours = o.Loop.Rain.Accum.Last24Hours
+		w.RainToday = o.Loop.Rain.Accum.Today
+		w.SolarRad = o.Loop.SolarRad
+		w.Temp = int(o.Loop.OutTemp)
 		if o.Archive.WindSpeedAvg > 0 {
-			w.WindDirection(o.Loop.Wind.Cur.Dir)
+			w.WindDir = o.Loop.Wind.Cur.Dir
 		} else {
-			w.WindDirection(360)
+			w.WindDir = 360
 		}
-		w.WindSpeed(o.Archive.WindSpeedAvg)
-		w.WindGust(o.Archive.WindSpeedHi)
+		w.WindSpeed = o.Archive.WindSpeedAvg
+		w.WindGust = o.Archive.WindSpeedHi
 
 		// Upload
 		a := aprs.Frame{Text: w.String()}
