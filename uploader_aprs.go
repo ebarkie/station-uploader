@@ -40,7 +40,7 @@ func (APRSUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) 
 		w.Zero()
 		w.Altimeter = o.Loop.Bar.Altimeter
 		w.Humidity = o.Loop.OutHumidity
-		w.RainRate = o.Loop.Rain.Rate
+		w.RainLastHour = o.Loop.Rain.Accum.LastHour
 		w.RainLast24Hours = o.Loop.Rain.Accum.Last24Hours
 		w.RainToday = o.Loop.Rain.Accum.Today
 		w.SolarRad = o.Loop.SolarRad
