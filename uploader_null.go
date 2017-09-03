@@ -4,9 +4,7 @@
 
 package main
 
-import (
-	"time"
-)
+import "time"
 
 // NullUploader is a fake uploader used for testing.
 type NullUploader struct{}

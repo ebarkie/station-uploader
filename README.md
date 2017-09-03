@@ -49,6 +49,9 @@ uploaders:
     dial: tcp://cwop.aprs.net:14580
     id: aWnnnn
 
+  - name: Test
+    type: "null"
+
   - name: Wunderground
     type: wu
     interval: 0
