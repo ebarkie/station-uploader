@@ -35,13 +35,13 @@ type ConfigUploader struct {
 	Password string        `yaml:"password"`
 }
 
-func readConfig(configFile string) (c Config) {
+func readConfig(file string) (c Config) {
 	// Defaults
 	for i := range c.Uploaders {
 		c.Uploaders[i].Interval = 1800
 	}
 
-	yamlFile, err := ioutil.ReadFile(configFile)
+	yamlFile, err := ioutil.ReadFile(file)
 	if err != nil {
 		Error.Fatalf("Unable to read config file: %s", err.Error())
 	}

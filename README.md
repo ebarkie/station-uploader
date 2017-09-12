@@ -7,15 +7,21 @@ Retrieves observations from a Davis station and sends them to APRS
 (TNC or IS (Citizen Weather Observer Program (CWOP))) and Weather
 Underground.
 
-## Installation
+## Building
 
-```
+### From source
+
+```bash
 $ go get
 $ go generate
 $ go build
 ```
 
-Refer to the [contrib](contrib) directory for a sample systemd service.
+### Debian/Ubuntu packages
+
+```bash
+$ debuild -uc -us -b
+```
 
 ## Configuration
 
@@ -24,7 +30,7 @@ weather station information and a series of uploaders to use.
 
 ```yaml
 station:
-  host: wx:8080
+  host: localhost:8080
   lat: 35.7
   lon: -78.7
   type: DvsVP2+
@@ -63,7 +69,7 @@ uploaders:
 
 ```
 Usage of ./station-uploader:
-  -config string
+  -conf string
         station uploader config file (default "station-uploader.yaml")
   -debug
         enable debug mode

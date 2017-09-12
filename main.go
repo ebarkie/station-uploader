@@ -74,7 +74,7 @@ func upload(c Config) {
 }
 
 func main() {
-	configFile := flag.String("config", "station-uploader.yaml", "station uploader config file")
+	conf := flag.String("conf", "station-uploader.yaml", "station uploader config file")
 	debug := flag.Bool("debug", false, "enable debug mode")
 	flag.Parse()
 
@@ -84,6 +84,6 @@ func main() {
 
 	Info.Printf("Weather station uploader (version %s)", version)
 
-	c := readConfig(*configFile)
+	c := readConfig(*conf)
 	upload(c)
 }

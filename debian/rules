@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+PACKAGE = $(shell dh_listpackages)
+TMP     = $(CURDIR)/debian/$(PACKAGE)
+
+export DH_GOPKG                := github.com/ebarkie/station-uploader
+export DH_GOLANG_GO_GENERATE   := 1
+export DH_GOLANG_INSTALL_EXTRA := version.sh
+
+GOGETS = github.com/ebarkie/aprs github.com/ebarkie/weatherlink github.com/ebarkie/wunderground
+
+%:
+	dh $@ --buildsystem=golang --with=golang,systemd --builddirectory=_build
+
+override_dh_auto_configure:
+	dh_auto_configure
+
+	chmod -v u+rx _build/src/$(DH_GOPKG)/version.sh
+
+	$(foreach SRC,$(GOGETS),git clone https://$(SRC) _build/src/$(DH_GOPKG)/vendor/$(SRC);)
+
+override_dh_auto_install:
+	dh_auto_install
+
+	rm -rfv $(TMP)/usr/share/gocode
+
+	mkdir $(TMP)/etc
+	cp station-uploader.yaml.sample $(TMP)/etc/station-uploader.conf

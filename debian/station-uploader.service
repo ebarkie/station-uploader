@@ -1,0 +1,14 @@
+[Unit]
+Description=Weather station uploader
+After=davis-station.service
+Requires=davis-station.service
+
+[Service]
+Type=simple
+User=wx
+Group=wx
+EnvironmentFile=-/etc/default/station-uploader
+ExecStart=/usr/bin/station-uploader -conf /etc/station-uploader.conf $EXTRA_OPTS
+
+[Install]
+WantedBy=multi-user.target
