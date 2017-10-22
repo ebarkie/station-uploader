@@ -13,7 +13,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ebarkie/weatherlink"
+	"github.com/ebarkie/weatherlink/data"
 )
 
 // Errors.
@@ -22,13 +22,13 @@ var (
 )
 
 type obs struct {
-	Archive weatherlink.Archive
-	Loop    weatherlink.Loop `json:"loop"`
+	Archive data.Archive
+	Loop    data.Loop `json:"loop"`
 }
 
 // getLastArchive makes a HTTP GET call to the Davis station at serverAddress and
 // retreives the most recent archive record no older than begin.
-func getLastArchive(serverAddress string, begin time.Time) (a weatherlink.Archive, err error) {
+func getLastArchive(serverAddress string, begin time.Time) (a data.Archive, err error) {
 	var resp *http.Response
 	resp, err = http.Get("http://" + serverAddress + "/archive?begin=" + begin.Format(time.RFC3339))
 	if err != nil {
@@ -41,7 +41,7 @@ func getLastArchive(serverAddress string, begin time.Time) (a weatherlink.Archiv
 		return
 	}
 
-	var as []weatherlink.Archive
+	var as []data.Archive
 	err = json.NewDecoder(resp.Body).Decode(&as)
 	if err != nil && len(as) > 0 {
 		a = as[0]
