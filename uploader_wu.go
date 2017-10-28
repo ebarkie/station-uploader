@@ -17,9 +17,11 @@ type WUUploader struct{}
 // specified interval.  If an interval of 0 is used it will use RapidFire
 // mode and send as rapidly as possible (usually every 2 seconds).
 func (WUUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
-	w := wunderground.New(up.ID, up.Password)
+	w := wunderground.Pws{ID: up.ID, Password: up.Password}
 	w.SoftwareType = "GoWunder 1337." + version
 	w.Interval = up.Interval * time.Second
+
+	wx := &wunderground.Wx{}
 
 	ok, sk, er := stats(up.Name)
 	t := time.NewTimer(0)
@@ -34,45 +36,45 @@ func (WUUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 		}
 
 		// Build Wunderground payload
-		w.Wx.Barometer(o.Loop.Bar.SeaLevel)
-		w.Wx.DailyRain(o.Loop.Rain.Accum.Today)
-		w.Wx.DewPoint(o.Loop.DewPoint)
-		w.Wx.OutdoorHumidity(o.Loop.OutHumidity)
-		w.Wx.OutdoorTemperature(o.Loop.OutTemp)
-		w.Wx.RainRate(o.Loop.Rain.Rate)
+		wx.Barometer(o.Loop.Bar.SeaLevel)
+		wx.DailyRain(o.Loop.Rain.Accum.Today)
+		wx.DewPoint(o.Loop.DewPoint)
+		wx.OutdoorHumidity(o.Loop.OutHumidity)
+		wx.OutdoorTemperature(o.Loop.OutTemp)
+		wx.RainRate(o.Loop.Rain.Rate)
 		for _, v := range o.Loop.SoilMoist {
 			if v != nil {
-				w.Wx.SoilMoisture(*v)
+				wx.SoilMoisture(*v)
 			}
 		}
 		for _, v := range o.Loop.SoilTemp {
 			if v != nil {
-				w.Wx.SoilTemperature(float64(*v))
+				wx.SoilTemperature(float64(*v))
 			}
 		}
-		w.Wx.SolarRadiation(o.Loop.SolarRad)
-		w.Wx.UVIndex(o.Loop.UVIndex)
+		wx.SolarRadiation(o.Loop.SolarRad)
+		wx.UVIndex(o.Loop.UVIndex)
 		if o.Loop.Wind.Cur.Speed > 0 {
-			w.Wx.WindDirection(o.Loop.Wind.Cur.Dir)
+			wx.WindDirection(o.Loop.Wind.Cur.Dir)
 		}
-		w.Wx.WindSpeed(float64(o.Loop.Wind.Cur.Speed))
+		wx.WindSpeed(float64(o.Loop.Wind.Cur.Speed))
 		if o.Archive.WindSpeedHi > o.Loop.Wind.Cur.Speed {
-			w.Wx.WindGustDirection(o.Archive.WindDirHi)
-			w.Wx.WindGustSpeed(float64(o.Archive.WindSpeedHi))
+			wx.WindGustDirection(o.Archive.WindDirHi)
+			wx.WindGustSpeed(float64(o.Archive.WindSpeedHi))
 		}
 		if o.Loop.Wind.Gust.Last10MinSpeed > 0 {
-			w.Wx.WindGustDirection10m(o.Loop.Wind.Gust.Last10MinDir)
+			wx.WindGustDirection10m(o.Loop.Wind.Gust.Last10MinDir)
 		}
-		w.Wx.WindGustSpeed10m(o.Loop.Wind.Gust.Last10MinSpeed)
-		w.Wx.WindSpeedAverage2m(o.Loop.Wind.Avg.Last2MinSpeed)
+		wx.WindGustSpeed10m(o.Loop.Wind.Gust.Last10MinSpeed)
+		wx.WindSpeedAverage2m(o.Loop.Wind.Avg.Last2MinSpeed)
 
 		// Upload
-		Debug.Printf("%s request URL: %s", up.Name, w.String())
-		skipped, err := w.Upload()
+		Debug.Printf("%s request URL: %s", up.Name, w.Encode(wx))
+		err := w.Upload(wx)
 		if err != nil {
 			Error.Printf("%s upload error: %s", up.Name, err.Error())
 			er <- 1
-		} else if skipped {
+		} else if w.Skipped() {
 			Debug.Printf("%s upload was unnecessary and skipped", up.Name)
 			sk <- 1
 		} else {
