@@ -11,7 +11,7 @@ type NullUploader struct{}
 
 // Upload tests various functions like reading channels, logging, and
 // saving stats but doesn't actually upload data anywhere.
-func (NullUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
+func (NullUploader) Upload(_ ConfigStation, up ConfigUploader, uc upChan) {
 	ok, _, _ := stats(up.Name)
 	t := time.NewTimer(0)
 	for {
