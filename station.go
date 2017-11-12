@@ -18,7 +18,7 @@ import (
 
 // Errors.
 var (
-	ErrBadResponse = errors.New("HTTP request returned non-OK status code")
+	errBadResponse = errors.New("HTTP request returned non-OK status code")
 )
 
 type obs struct {
@@ -37,7 +37,7 @@ func getLastArchive(serverAddress string, begin time.Time) (a data.Archive, err 
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		err = ErrBadResponse
+		err = errBadResponse
 		return
 	}
 

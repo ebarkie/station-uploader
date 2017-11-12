@@ -11,8 +11,8 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// Config is the station uploader configuration.
-type Config struct {
+// config is the station uploader configuration.
+type config struct {
 	Station   ConfigStation    `yaml:"station"`
 	Uploaders []ConfigUploader `yaml:"uploaders"`
 }
@@ -35,7 +35,7 @@ type ConfigUploader struct {
 	Password string        `yaml:"password"`
 }
 
-func readConfig(file string) (c Config) {
+func readConfig(file string) (c config) {
 	// Defaults
 	for i := range c.Uploaders {
 		c.Uploaders[i].Interval = 1800

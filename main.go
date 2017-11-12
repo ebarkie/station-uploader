@@ -22,7 +22,7 @@ const (
 type upChan chan obs
 
 // upload is the main upload controller.
-func upload(c Config) {
+func upload(c config) {
 	obss := make(chan obs)
 
 	// Create channels and goroutines for configured uploaders.
