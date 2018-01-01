@@ -58,6 +58,12 @@ uploaders:
   - name: Test
     type: "null"
 
+  - name: Weathercloud
+    type: wc
+    interval: 600
+    id: 0123
+    password: beef
+
   - name: Wunderground
     type: wu
     interval: 0
