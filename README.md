@@ -4,8 +4,8 @@
 [![Build Status](https://travis-ci.org/ebarkie/station-uploader.svg?branch=master)](https://travis-ci.org/ebarkie/station-uploader)
 
 Retrieves observations from a Davis station and sends them to APRS
-(TNC or IS (Citizen Weather Observer Program (CWOP))) and Weather
-Underground.
+(TNC or IS (Citizen Weather Observer Program (CWOP))), WeatherCloud,
+and Weather Underground.
 
 ## Building
 
@@ -79,6 +79,6 @@ $ ./station-uploader
 
 ## License
 
-Copyright (c) 2016-2017 Eric Barkie. All rights reserved.  
+Copyright (c) 2016-2018 Eric Barkie. All rights reserved.  
 Use of this source code is governed by the MIT license
 that can be found in the [LICENSE](LICENSE) file.

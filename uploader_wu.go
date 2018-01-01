@@ -1,4 +1,4 @@
-// Copyright (c) 2016-2017 Eric Barkie. All rights reserved.
+// Copyright (c) 2016-2018 Eric Barkie. All rights reserved.
 // Use of this source code is governed by the MIT license
 // that can be found in the LICENSE file.
 
@@ -36,37 +36,37 @@ func (WUUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 		}
 
 		// Build Wunderground payload
-		wx.Barometer(o.Loop.Bar.SeaLevel)
+		wx.Bar(o.Loop.Bar.SeaLevel)
 		wx.DailyRain(o.Loop.Rain.Accum.Today)
 		wx.DewPoint(o.Loop.DewPoint)
-		wx.OutdoorHumidity(o.Loop.OutHumidity)
-		wx.OutdoorTemperature(o.Loop.OutTemp)
+		wx.OutHumidity(o.Loop.OutHumidity)
+		wx.OutTemp(o.Loop.OutTemp)
 		wx.RainRate(o.Loop.Rain.Rate)
 		for _, v := range o.Loop.SoilMoist {
 			if v != nil {
-				wx.SoilMoisture(*v)
+				wx.SoilMoist(*v)
 			}
 		}
 		for _, v := range o.Loop.SoilTemp {
 			if v != nil {
-				wx.SoilTemperature(float64(*v))
+				wx.SoilTemp(float64(*v))
 			}
 		}
-		wx.SolarRadiation(o.Loop.SolarRad)
+		wx.SolarRad(o.Loop.SolarRad)
 		wx.UVIndex(o.Loop.UVIndex)
 		if o.Loop.Wind.Cur.Speed > 0 {
-			wx.WindDirection(o.Loop.Wind.Cur.Dir)
+			wx.WindDir(o.Loop.Wind.Cur.Dir)
 		}
 		wx.WindSpeed(float64(o.Loop.Wind.Cur.Speed))
 		if o.Archive.WindSpeedHi > o.Loop.Wind.Cur.Speed {
-			wx.WindGustDirection(o.Archive.WindDirHi)
+			wx.WindGustDir(o.Archive.WindDirHi)
 			wx.WindGustSpeed(float64(o.Archive.WindSpeedHi))
 		}
 		if o.Loop.Wind.Gust.Last10MinSpeed > 0 {
-			wx.WindGustDirection10m(o.Loop.Wind.Gust.Last10MinDir)
+			wx.WindGustDir10m(o.Loop.Wind.Gust.Last10MinDir)
 		}
 		wx.WindGustSpeed10m(o.Loop.Wind.Gust.Last10MinSpeed)
-		wx.WindSpeedAverage2m(o.Loop.Wind.Avg.Last2MinSpeed)
+		wx.WindSpeedAvg2m(o.Loop.Wind.Avg.Last2MinSpeed)
 
 		// Upload
 		Debug.Printf("%s request URL: %s", up.Name, w.Encode(wx))
