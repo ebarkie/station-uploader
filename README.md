@@ -62,7 +62,7 @@ uploaders:
     type: wc
     interval: 600
     id: 0123
-    password: beef
+    password: deadbeef
 
   - name: Wunderground
     type: wu
