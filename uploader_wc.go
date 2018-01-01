@@ -16,7 +16,11 @@ type WCUploader struct{}
 // Upload sends the received observations to Weathercloud at the specified
 // interval or every 10 minutes, whichever is longer.
 func (WCUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
-	const minInterval = 600
+	// Upload interval can not be shorter than 10 minutes.
+	interval := up.Interval
+	if interval < 600 {
+		interval = 600
+	}
 
 	w := weathercloud.Device{WID: up.ID, Key: up.Password}
 	w.SoftwareVersion = version
@@ -71,11 +75,6 @@ func (WCUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 			ok <- 1
 		}
 
-		// Upload interval can not be shorter than 10 minutes.
-		if up.Interval > minInterval {
-			t.Reset(up.Interval * time.Second)
-		} else {
-			t.Reset(minInterval * time.Second)
-		}
+		t.Reset(interval * time.Second)
 	}
 }
