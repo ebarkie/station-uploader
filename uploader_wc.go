@@ -28,14 +28,14 @@ func (WCUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 	for {
 		o := <-uc
 
-		// Only upload if interval has passed
+		// Only upload if interval has passed.
 		select {
 		case <-t.C:
 		default:
 			continue
 		}
 
-		// Build Weathercloud payload
+		// Build Weathercloud payload.
 		wx.Bar(o.Loop.Bar.SeaLevel)
 		wx.DailyET(o.Loop.ET.Today)
 		wx.DailyRain(o.Loop.Rain.Accum.Today)

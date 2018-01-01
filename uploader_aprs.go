@@ -29,14 +29,14 @@ func (APRSUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) 
 	for {
 		o := <-uc
 
-		// Only upload if interval has passed
+		// Only upload if interval has passed.
 		select {
 		case <-t.C:
 		default:
 			continue
 		}
 
-		// Build APRS text payload
+		// Build APRS text payload.
 		w.Zero()
 		w.Altimeter = o.Loop.Bar.Altimeter
 		w.Humidity = o.Loop.OutHumidity
@@ -53,7 +53,7 @@ func (APRSUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) 
 		w.WindSpeed = o.Archive.WindSpeedAvg
 		w.WindGust = o.Archive.WindSpeedHi
 
-		// Upload
+		// Upload.
 		a := aprs.Frame{Text: w.String()}
 		a.Src.FromString(up.ID)
 		dial := func() error { return nil }

@@ -28,14 +28,14 @@ func (WUUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 	for {
 		o := <-uc
 
-		// Only upload if interval has passed
+		// Only upload if interval has passed.
 		select {
 		case <-t.C:
 		default:
 			continue
 		}
 
-		// Build Wunderground payload
+		// Build Wunderground payload.
 		wx.Bar(o.Loop.Bar.SeaLevel)
 		wx.DailyRain(o.Loop.Rain.Accum.Today)
 		wx.DewPoint(o.Loop.DewPoint)
@@ -68,7 +68,7 @@ func (WUUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 		wx.WindGustSpeed10m(o.Loop.Wind.Gust.Last10MinSpeed)
 		wx.WindSpeedAvg2m(o.Loop.Wind.Avg.Last2MinSpeed)
 
-		// Upload
+		// Upload.
 		Debug.Printf("%s request URL: %s", up.Name, w.Encode(wx))
 		err := w.Upload(wx)
 		if err != nil {

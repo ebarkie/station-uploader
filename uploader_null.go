@@ -17,14 +17,14 @@ func (NullUploader) Upload(_ ConfigStation, up ConfigUploader, uc upChan) {
 	for {
 		<-uc
 
-		// Only upload if interval has passed
+		// Only upload if interval has passed.
 		select {
 		case <-t.C:
 		default:
 			continue
 		}
 
-		// Null upload
+		// Null upload.
 		Info.Printf("%s upload fired", up.Name)
 		ok <- 1
 

@@ -11,7 +11,7 @@ type Uploader interface {
 	Upload(ConfigStation, ConfigUploader, upChan)
 }
 
-// Registered uploaders
+// Registered uploaders.
 var uploaders = map[string]Uploader{
 	"APRS":    APRSUploader{},
 	"APRS-IS": APRSUploader{},
