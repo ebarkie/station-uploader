@@ -26,7 +26,7 @@ type obs struct {
 	Loop    data.Loop `json:"loop"`
 }
 
-// getLastArchive makes a HTTP GET call to the Davis station at serverAddress and
+// getLastArchive makes a HTTP GET call to the station at serverAddress and
 // retreives the most recent archive record no older than begin.
 func getLastArchive(serverAddress string, begin time.Time) (a data.Archive, err error) {
 	var resp *http.Response
@@ -50,7 +50,7 @@ func getLastArchive(serverAddress string, begin time.Time) (a data.Archive, err 
 	return
 }
 
-// streamEvents makes a HTTP GET call to the Davis station at serverAddress and
+// streamEvents makes a HTTP GET call to the station at serverAddress and
 // receives a continuous stream of archive and loop events using Server-sent events
 // format.
 func streamEvents(serverAddress string, obss chan<- obs) (err error) {
@@ -62,7 +62,7 @@ func streamEvents(serverAddress string, obss chan<- obs) (err error) {
 	}
 	defer resp.Body.Close()
 
-	// Check HTTP status
+	// Check HTTP status.
 	if resp.StatusCode != http.StatusOK {
 		err = fmt.Errorf("HTTP request returned non-OK status code: %d", resp.StatusCode)
 		return
@@ -71,9 +71,9 @@ func streamEvents(serverAddress string, obss chan<- obs) (err error) {
 	// Lightweight Server-sent event parser.
 	reader := bufio.NewReader(resp.Body)
 
-	// Archive records can take a while to arrive so initially seed it with the
-	// most recent one if it's not older than 9 minutes.  It doesn't matter if it
-	// errors since we'll just get it via the normal event stream later.
+	// Archive records can take a while to arrive so initially seed with the
+	// most recent one if it's not older than 9 minutes.  Ignore the error
+	// response; if this fails it will come through the event stream later.
 	var o obs
 	o.Archive, _ = getLastArchive(serverAddress, time.Now().Add(-9*time.Minute))
 
