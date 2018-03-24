@@ -59,12 +59,12 @@ func (APRSUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) 
 		dial := func() error { return nil }
 		switch strings.ToUpper(up.Type) {
 		case "APRS":
-			a.Dst = aprs.Address{Call: "APZ001"} // Experimental v0.0.1
-			//a.Path = aprs.Path{aprs.Address{Call: "WIDE1", SSID: 1}, aprs.Address{Call: "WIDE2", SSID: 1}}
+			a.Dst = aprs.Addr{Call: "APZ001"} // Experimental v0.0.1
+			//a.Path = aprs.Path{aprs.Addr{Call: "WIDE1", SSID: 1}, aprs.Addr{Call: "WIDE2", SSID: 1}}
 			dial = func() error { return a.SendKISS(up.Dial) }
 		case "APRS-IS":
-			a.Dst = aprs.Address{Call: "APRS"}
-			a.Path = aprs.Path{aprs.Address{Call: "TCPIP", Repeated: true}}
+			a.Dst = aprs.Addr{Call: "APRS"}
+			a.Path = aprs.Path{aprs.Addr{Call: "TCPIP", Repeated: true}}
 			pw, err := strconv.Atoi(up.Password)
 			if err != nil {
 				pw = -1
