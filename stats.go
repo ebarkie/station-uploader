@@ -15,7 +15,8 @@ func stats(name string) (ok, sk, er chan int) {
 	go func() {
 		var oks, skips, errors int
 
-		t := time.NewTimer(logInterval)
+		t := time.NewTicker(logInterval)
+		defer t.Stop()
 		for {
 			select {
 			case i := <-ok:
@@ -28,7 +29,6 @@ func stats(name string) (ok, sk, er chan int) {
 				Info.Printf("%s upload stats ok=%d/skips=%d/errors=%d",
 					name, oks, skips, errors)
 				oks, skips, errors = 0, 0, 0
-				t.Reset(logInterval)
 			}
 		}
 
