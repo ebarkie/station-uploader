@@ -54,9 +54,7 @@ func (WUUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 		}
 		wx.SolarRad(o.Loop.SolarRad)
 		wx.UVIndex(o.Loop.UVIndex)
-		if o.Loop.Wind.Cur.Speed > 0 {
-			wx.WindDir(o.Loop.Wind.Cur.Dir)
-		}
+		wx.WindDir(o.Loop.Wind.Cur.Dir)
 		wx.WindSpeed(float64(o.Loop.Wind.Cur.Speed))
 		if o.Archive.WindSpeedHi > o.Loop.Wind.Cur.Speed {
 			wx.WindGustDir(o.Archive.WindDirHi)
