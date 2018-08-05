@@ -1,3 +1,6 @@
 # Default settings for station-uploader.
 
+# Config file
+CONF="/etc/station-uploader.conf"
+
 EXTRA_OPTS=""

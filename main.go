@@ -74,7 +74,7 @@ func upload(c config) {
 }
 
 func main() {
-	conf := flag.String("conf", "station-uploader.yaml", "station uploader config file")
+	conf := flag.String("conf", "station-uploader.yaml", "config file")
 	debug := flag.Bool("debug", false, "enable debug mode")
 	flag.Parse()
 

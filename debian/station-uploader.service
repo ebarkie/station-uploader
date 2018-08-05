@@ -8,7 +8,7 @@ Type=simple
 User=wx
 Group=wx
 EnvironmentFile=-/etc/default/station-uploader
-ExecStart=/usr/bin/station-uploader -conf /etc/station-uploader.conf $EXTRA_OPTS
+ExecStart=/usr/bin/station-uploader -conf $CONF $EXTRA_OPTS
 
 [Install]
 WantedBy=multi-user.target
