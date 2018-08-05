@@ -76,7 +76,7 @@ uploaders:
 ```
 Usage of ./station-uploader:
   -conf string
-        station uploader config file (default "station-uploader.yaml")
+        config file (default "station-uploader.yaml")
   -debug
         enable debug mode
 
