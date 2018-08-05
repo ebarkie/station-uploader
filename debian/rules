@@ -7,7 +7,11 @@ export DH_GOPKG                := github.com/ebarkie/station-uploader
 export DH_GOLANG_GO_GENERATE   := 1
 export DH_GOLANG_INSTALL_EXTRA := version.sh
 
-GOGETS = github.com/ebarkie/aprs github.com/ebarkie/weatherlink github.com/ebarkie/wunderground
+GOGETS = github.com/ebarkie/aprs \
+	 github.com/ebarkie/http \
+	 github.com/ebarkie/weathercloud \
+	 github.com/ebarkie/weatherlink \
+	 github.com/ebarkie/wunderground
 
 %:
 	dh $@ --buildsystem=golang --with=golang,systemd --builddirectory=_build
