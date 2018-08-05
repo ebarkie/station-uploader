@@ -1,7 +1,7 @@
 [Unit]
 Description=Weather station uploader
-After=davis-station.service
 Requires=davis-station.service
+After=davis-station.service
 
 [Service]
 Type=simple
