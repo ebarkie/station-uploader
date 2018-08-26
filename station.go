@@ -26,11 +26,11 @@ type obs struct {
 	Loop    data.Loop `json:"loop"`
 }
 
-// getLastArchive makes a HTTP GET call to the station at serverAddress and
-// retreives the most recent archive record no older than begin.
-func getLastArchive(serverAddress string, begin time.Time) (a data.Archive, err error) {
+// getLastArchive makes a HTTP GET call to the station at addr and retreives
+// the most recent archive record no older than begin.
+func getLastArchive(addr string, begin time.Time) (a data.Archive, err error) {
 	var resp *http.Response
-	resp, err = http.Get("http://" + serverAddress + "/archive?begin=" + begin.Format(time.RFC3339))
+	resp, err = http.Get("http://" + addr + "/archive?begin=" + begin.Format(time.RFC3339))
 	if err != nil {
 		return
 	}
@@ -50,13 +50,13 @@ func getLastArchive(serverAddress string, begin time.Time) (a data.Archive, err 
 	return
 }
 
-// streamEvents makes a HTTP GET call to the station at serverAddress and
-// receives a continuous stream of archive and loop events using Server-sent events
+// streamEvents makes a HTTP GET call to the station at addr and receives
+// a continuous stream of archive and loop events using Server-sent events
 // format.
-func streamEvents(serverAddress string, obss chan<- obs) (err error) {
+func streamEvents(addr string, obss chan<- obs) (err error) {
 	// Setup and initiate request
 	var resp *http.Response
-	resp, err = http.Get("http://" + serverAddress + "/events")
+	resp, err = http.Get("http://" + addr + "/events")
 	if err != nil {
 		return
 	}
@@ -75,7 +75,7 @@ func streamEvents(serverAddress string, obss chan<- obs) (err error) {
 	// most recent one if it's not older than 9 minutes.  Ignore the error
 	// response; if this fails it will come through the event stream later.
 	var o obs
-	o.Archive, _ = getLastArchive(serverAddress, time.Now().Add(-9*time.Minute))
+	o.Archive, _ = getLastArchive(addr, time.Now().Add(-9*time.Minute))
 
 	var e, s string
 	for {

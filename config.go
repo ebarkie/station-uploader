@@ -19,7 +19,7 @@ type config struct {
 
 // ConfigStation is the Davis Instruments weather server information.
 type ConfigStation struct {
-	Host string  `yaml:"host"`
+	Addr string  `yaml:"addr"`
 	Lat  float64 `yaml:"lat"`
 	Lon  float64 `yaml:"lon"`
 	Type string  `yaml:"type"`

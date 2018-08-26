@@ -42,7 +42,7 @@ func upload(c config) {
 	// channel.
 	go func(obss chan obs) {
 		for {
-			err := streamEvents(c.Station.Host, obss) // Block, unless we hit an error
+			err := streamEvents(c.Station.Addr, obss) // Block, unless we hit an error
 			if err != nil {
 				Warn.Printf("Error retrieving observations: %s", err.Error())
 			}
