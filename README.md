@@ -29,7 +29,7 @@ weather station information and a series of uploaders to use.
 
 ```yaml
 station:
-  host: localhost:8080
+  addr: localhost:8080
   lat: 35.7
   lon: -78.7
   type: DvsVP2+
