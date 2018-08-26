@@ -1,6 +1,11 @@
 .DS_Store
 ._*
 *.swp
+
 *.yaml
-station-uploader
-version.go
+/station-uploader
+/version.go
+
+/_build
+/debian/.debhelper
+/debian/station-uploader
