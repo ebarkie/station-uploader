@@ -9,6 +9,7 @@ User=wx
 Group=wx
 EnvironmentFile=-/etc/default/station-uploader
 ExecStart=/usr/bin/station-uploader -conf $CONF $EXTRA_OPTS
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
