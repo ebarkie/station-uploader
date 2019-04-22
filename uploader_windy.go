@@ -43,7 +43,7 @@ func (WindyUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan)
 		wx.DewPoint(o.Loop.DewPoint)
 		wx.OutHumidity(o.Loop.OutHumidity)
 		wx.OutTemp(o.Loop.OutTemp)
-		wx.RainRate(o.Loop.Rain.Rate)
+		wx.RainRate(o.Loop.Rain.Accum.LastHour)
 		wx.UVIndex(o.Loop.UVIndex)
 		if o.Loop.Wind.Cur.Speed > 0 {
 			wx.WindDir(o.Loop.Wind.Cur.Dir)
