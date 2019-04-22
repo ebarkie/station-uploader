@@ -45,11 +45,11 @@ func (WindyUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan)
 		wx.OutTemp(o.Loop.OutTemp)
 		wx.RainRate(o.Loop.Rain.Accum.LastHour)
 		wx.UVIndex(o.Loop.UVIndex)
-		if o.Loop.Wind.Cur.Speed > 0 {
-			wx.WindDir(o.Loop.Wind.Cur.Dir)
+		if o.Archive.WindSpeedAvg > 0 {
+			wx.WindDir(o.Archive.WindDirPrevail)
 		}
-		wx.WindSpeed(float64(o.Loop.Wind.Cur.Speed))
-		wx.WindGustSpeed(o.Loop.Wind.Gust.Last10MinSpeed)
+		wx.WindSpeed(float64(o.Archive.WindSpeedAvg))
+		wx.WindGustSpeed(float64(o.Archive.WindSpeedHi))
 
 		// Upload.
 		Debug.Printf("%s request URL: %s", up.Name, s.Encode(wx))

@@ -46,7 +46,7 @@ func (APRSUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) 
 		w.SolarRad = o.Loop.SolarRad
 		w.Temp = int(o.Loop.OutTemp)
 		if o.Archive.WindSpeedAvg > 0 {
-			w.WindDir = o.Loop.Wind.Cur.Dir
+			w.WindDir = o.Archive.WindDirPrevail
 		} else {
 			w.WindDir = 360
 		}
