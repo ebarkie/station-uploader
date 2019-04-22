@@ -13,7 +13,7 @@ import (
 // WindyUploader handles Windy Stations uploads.
 type WindyUploader struct{}
 
-// Upload sends the received observations to Windy.com at the specified
+// Upload sends the received observations to Windy at the specified
 // interval or every 5 minutes, whichever is longer.
 func (WindyUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 	// Upload interval can not be shorter than 5 minutes.
@@ -38,7 +38,7 @@ func (WindyUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan)
 			continue
 		}
 
-		// Build Weathercloud payload.
+		// Build Windy payload.
 		wx.Bar(o.Loop.Bar.SeaLevel)
 		wx.DewPoint(o.Loop.DewPoint)
 		wx.OutHumidity(o.Loop.OutHumidity)
