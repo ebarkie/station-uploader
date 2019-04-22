@@ -66,7 +66,7 @@ uploaders:
     id: 0123
     password: deadbeef
 
-  - name: Windy.com
+  - name: Windy
     type: windy
     interval: 300
     id: f00d
