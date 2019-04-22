@@ -11,16 +11,19 @@ and Weather Underground.
 
 ### Binary from source
 
-```bash
+```sh
 $ go generate
 $ go build
 ```
 
 ### Debian/Ubuntu packages
 
-```bash
+```sh
 $ dpkg-buildpackage -uc -us -b
 ```
+
+To build packages for other architectures add the `--host-arch` option.  For
+Raspberry Pi use `--host-arch armhf`.
 
 ## Configuration
 
