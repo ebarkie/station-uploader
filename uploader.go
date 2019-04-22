@@ -17,5 +17,6 @@ var uploaders = map[string]Uploader{
 	"APRS-IS": APRSUploader{},
 	"NULL":    NullUploader{},
 	"WC":      WCUploader{},
+	"WINDY":   WindyUploader{},
 	"WU":      WUUploader{},
 }

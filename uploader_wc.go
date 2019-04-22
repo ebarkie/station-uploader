@@ -22,8 +22,8 @@ func (WCUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 		interval = 600
 	}
 
-	w := weathercloud.Device{WID: up.ID, Key: up.Password}
-	w.SoftwareVersion = version
+	d := weathercloud.Device{WID: up.ID, Key: up.Password}
+	d.SoftwareVersion = version
 
 	wx := &weathercloud.Wx{}
 
@@ -65,8 +65,8 @@ func (WCUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 		wx.WindSpeedAvg(o.Loop.Wind.Avg.Last10MinSpeed)
 
 		// Upload.
-		Debug.Printf("%s request URL: %s", up.Name, w.Encode(wx))
-		err := w.Upload(wx)
+		Debug.Printf("%s request URL: %s", up.Name, d.Encode(wx))
+		err := d.Upload(wx)
 		if err != nil {
 			Error.Printf("%s upload error: %s", up.Name, err.Error())
 			er <- 1

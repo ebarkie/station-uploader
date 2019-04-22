@@ -8,6 +8,8 @@ github.com/ebarkie/weathercloud v1.0.0 h1:Av244WrmDPc+FbaVaQ3rOpy0sF8I1lTjDxOLda
 github.com/ebarkie/weathercloud v1.0.0/go.mod h1:tRwdBiyeSsp6+YseJKLKY+hKHuvpDSkSN70DW/cRoVM=
 github.com/ebarkie/weatherlink v1.0.0 h1:iMJxBJRcC5UNDVGoNLjqFJUn3WZpA8gdw2ryUciDnFU=
 github.com/ebarkie/weatherlink v1.0.0/go.mod h1:rK/HY1OjAN54ixV9LPQsMktU+6ubUWGOP75Niqd8F4E=
+github.com/ebarkie/windy v1.0.0 h1:5VPcJ6eieXYdRKKg4doaR3XKcFHsfDzPGppi9aB6QGI=
+github.com/ebarkie/windy v1.0.0/go.mod h1:0Y0s3aqC8am4LJsoNjc62JehQJSEFjEDC+YAGz/lWvc=
 github.com/ebarkie/wunderground v1.0.0 h1:+HXbzdiy/rI/rC28beJclI4Beju63HyPWPML53LCla0=
 github.com/ebarkie/wunderground v1.0.0/go.mod h1:Py6HxvYfLpLtJNZMWHKlmjl9ouUky4aSpcw8PznQEgc=
 github.com/pkg/term v0.0.0-20180730021639-bffc007b7fd5/go.mod h1:eCbImbZ95eXtAUIbLAuAVnBnwf83mjf6QIVH8SHYwqQ=

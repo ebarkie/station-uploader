@@ -63,6 +63,12 @@ uploaders:
     id: 0123
     password: deadbeef
 
+  - name: Windy.com
+    type: Windy
+    interval: 300
+    id: f00d
+    password: deadbeef
+
   - name: Wunderground
     type: wu
     interval: 0
@@ -84,6 +90,6 @@ $ ./station-uploader
 
 ## License
 
-Copyright (c) 2016-2018 Eric Barkie. All rights reserved.  
+Copyright (c) 2016-2019 Eric Barkie. All rights reserved.  
 Use of this source code is governed by the MIT license
 that can be found in the [LICENSE](LICENSE) file.
