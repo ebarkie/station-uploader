@@ -5,8 +5,10 @@
 package main
 
 import (
+	"strconv"
 	"time"
 
+	"github.com/ebarkie/weatherlink/units"
 	"github.com/ebarkie/windy"
 )
 
@@ -22,9 +24,12 @@ func (WindyUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan)
 		interval = 300
 	}
 
-	s := windy.Station{ID: up.ID, Key: up.Password}
-
-	wx := &windy.Wx{}
+	r := &windy.Req{Key: up.Password}
+	id, err := strconv.ParseInt(up.ID, 10, 32)
+	if err != nil {
+		Error.Printf("%s has an invalid station ID: %s, skipping uploads", up.Name, up.ID)
+		return
+	}
 
 	ok, _, er := stats(up.Name)
 	t := time.NewTimer(0)
@@ -39,21 +44,31 @@ func (WindyUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan)
 		}
 
 		// Build Windy payload.
-		wx.Bar(o.Loop.Bar.SeaLevel)
-		wx.DewPoint(o.Loop.DewPoint)
-		wx.OutHumidity(o.Loop.OutHumidity)
-		wx.OutTemp(o.Loop.OutTemp)
-		wx.RainRate(o.Loop.Rain.Accum.LastHour)
-		wx.UVIndex(o.Loop.UVIndex)
-		if o.Archive.WindSpeedAvg > 0 {
-			wx.WindDir(o.Archive.WindDirPrevail)
+		obs := windy.Obs{
+			Station: int32(id),
 		}
-		wx.WindSpeed(float64(o.Archive.WindSpeedAvg))
-		wx.WindGustSpeed(float64(o.Archive.WindSpeedHi))
+
+		obs.BaromIn = &o.Loop.Bar.SeaLevel
+		dewpoint := units.Fahrenheit(o.Loop.DewPoint).Celsius()
+		obs.DewPoint = &dewpoint
+		rh := float64(o.Loop.OutHumidity)
+		obs.RH = &rh
+		obs.TempF = &o.Loop.OutTemp
+		obs.RainIn = &o.Loop.Rain.Accum.LastHour
+		obs.UV = &o.Loop.UVIndex
+		if o.Archive.WindSpeedAvg > 0 {
+			obs.WindDir = &o.Archive.WindDirPrevail
+		}
+		windSpeedMPH := float64(o.Archive.WindSpeedAvg)
+		obs.WindSpeedMPH = &windSpeedMPH
+		windGustMPH := float64(o.Archive.WindSpeedHi)
+		obs.WindGustMPH = &windGustMPH
+
+		r.Obss = []windy.Obs{obs}
 
 		// Upload.
-		Debug.Printf("%s request URL: %s", up.Name, s.Encode(wx))
-		err := s.Upload(wx)
+		Debug.Printf("%s request URL: %s, body: %s", up.Name, r.Encode(), r.Body())
+		err := r.Upload()
 		if err != nil {
 			Error.Printf("%s upload error: %s", up.Name, err.Error())
 			er <- 1

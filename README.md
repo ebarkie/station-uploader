@@ -69,7 +69,7 @@ uploaders:
   - name: Windy
     type: windy
     interval: 300
-    id: f00d
+    id: 0
     password: deadbeef
 
   - name: Wunderground
