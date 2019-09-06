@@ -8,3 +8,5 @@ require (
 	github.com/ebarkie/wunderground v1.0.0
 	gopkg.in/yaml.v2 v2.2.1
 )
+
+go 1.13
