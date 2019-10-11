@@ -7,7 +7,7 @@ package main
 import (
 	"time"
 
-	"github.com/ebarkie/weathercloud"
+	"gitlab.com/ebarkie/weathercloud"
 )
 
 // WCUploader handles Weathercloud uploads.

@@ -1,14 +1,14 @@
 Source: station-uploader
 Section: science
 Priority: extra
-Maintainer: Eric Barkie <ebarkie@users.noreply.github.com>
+Maintainer: Eric Barkie <2314646-ebarkie@users.noreply.gitlab.com>
 Build-Depends: debhelper (>= 10),
                dh-golang,
                git,
                golang-any (>= 2:1.11~) | golang-go (>= 2:1.11~)
 Standards-Version: 4.0.0
-Homepage: https://github.com/ebarkie/station-uploader
-XS-Go-Import-Path: github.com/ebarkie/station-uploader
+Homepage: https://gitlab.com/ebarkie/station-uploader
+XS-Go-Import-Path: gitlab.com/ebarkie/station-uploader
 
 Package: station-uploader
 Architecture: any

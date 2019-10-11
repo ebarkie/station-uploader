@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ebarkie/aprs"
+	"gitlab.com/ebarkie/aprs"
 )
 
 // APRSUploader handles APRS(-RF) and APRS-IS uploads.
