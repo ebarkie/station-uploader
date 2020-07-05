@@ -1,3 +1,5 @@
+![Push](https://github.com/ebarkie/station-uploader/workflows/Push/badge.svg)
+
 # Station Uploader
 
 Retrieves observations from a Davis station and sends them to APRS
