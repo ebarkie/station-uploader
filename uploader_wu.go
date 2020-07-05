@@ -7,7 +7,7 @@ package main
 import (
 	"time"
 
-	"gitlab.com/ebarkie/wunderground"
+	"github.com/ebarkie/wunderground"
 )
 
 // WUUploader handles Weather Underground uploads.

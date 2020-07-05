@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"time"
 
-	"gitlab.com/ebarkie/weatherlink/units"
-	"gitlab.com/ebarkie/windy"
+	"github.com/ebarkie/weatherlink/units"
+	"github.com/ebarkie/windy"
 )
 
 // WindyUploader handles Windy Stations uploads.
