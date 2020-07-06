@@ -12,7 +12,7 @@ jobs:
 
       matrix:
         goos: [linux]
-        goarch: [amd64, arm, arm64]
+        goarch: [amd64, arm]
 
     name: Build ${{ matrix.goos }}/${{ matrix.goarch }}
 
