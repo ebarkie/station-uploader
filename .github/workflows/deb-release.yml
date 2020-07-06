@@ -45,7 +45,7 @@ jobs:
 
       - name: Build Debian package
         id: deb
-        uses: ebarkie/actions/deb/go@test
+        uses: ebarkie/actions/deb/go@master
         with:
           hostarch: ${{ matrix.hostarch }}
           version: ${{ github.ref }}
