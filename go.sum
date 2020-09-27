@@ -6,8 +6,8 @@ github.com/ebarkie/http v1.0.2/go.mod h1:NhM7TxZn7NJLoR2lY3WhaV+tZbL0BlAVdFQFbrI
 github.com/ebarkie/weathercloud v1.0.2 h1:wPdjHk6CWzeL/VTu0jcOg9pq8yocb610o2dPJmZ6sMQ=
 github.com/ebarkie/weathercloud v1.0.2/go.mod h1:d5iIHEz4TNWAasjgxC4L32I+e0lE3gUG5nYNLjzO2SI=
 github.com/ebarkie/weatherlink v1.0.2/go.mod h1:PS5QOQWlOtW8czp7fIe15AfPscdw511cOFngx90QbVg=
-github.com/ebarkie/weatherlink v1.0.4 h1:Ez8Hc1vRA991h5UwP54n6ze1SbgcLe0q/shj8j6xIEE=
-github.com/ebarkie/weatherlink v1.0.4/go.mod h1:zSc3f3AhgprFa//fPIFVwQeX7R2ozL24E1rZ4f9H8/8=
+github.com/ebarkie/weatherlink v1.0.5 h1:/Pw3mjqbz4sSvCAlj/H4+dw5VTZToaU0EvFPLoGySqQ=
+github.com/ebarkie/weatherlink v1.0.5/go.mod h1:zSc3f3AhgprFa//fPIFVwQeX7R2ozL24E1rZ4f9H8/8=
 github.com/ebarkie/windy v1.1.2 h1:/llGDyrK2oYldrpraOyTU8PPAHZze81dad9m+BLHPR4=
 github.com/ebarkie/windy v1.1.2/go.mod h1:ekgasJgwzf3mciUFmBxCcXmdFv3vL7nwSzC4y/x0oIg=
 github.com/ebarkie/wunderground v1.0.4 h1:xoDr9z0ihzOpMu/aHFiYlNz0S4oRAtbIzlsauynNAE8=
