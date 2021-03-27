@@ -5,7 +5,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"os"
 	"time"
 
 	"gopkg.in/yaml.v2"
@@ -41,7 +41,7 @@ func readConfig(file string) (c config) {
 		c.Uploaders[i].Interval = 1800
 	}
 
-	yamlFile, err := ioutil.ReadFile(file)
+	yamlFile, err := os.ReadFile(file)
 	if err != nil {
 		Error.Fatalf("Unable to read config file: %s", err.Error())
 	}
