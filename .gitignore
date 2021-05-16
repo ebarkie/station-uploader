@@ -2,10 +2,8 @@
 ._*
 *.swp
 
-*.yaml
+/*.yaml
 /station-uploader
 /version.go
 
 /_build
-/debian/.debhelper
-/debian/station-uploader
