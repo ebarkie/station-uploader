@@ -1,7 +1,7 @@
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/ebarkie/aprs v1.0.3 h1:sO3Egrx9XSh/PZDdT0R9APoabr7H6bHobsmbXuH1qeg=
-github.com/ebarkie/aprs v1.0.3/go.mod h1:MWO5P85SM4UTzM5W0pAVDz2kFeUyEsCjmeEbpDZWv+s=
+github.com/ebarkie/aprs v1.0.4 h1:Jw2Ta2gTCqswU4Xfr1Gx0WnhY3hmvPkoI+pUOtDRVLI=
+github.com/ebarkie/aprs v1.0.4/go.mod h1:DGhO4rvpN8oNnexuJldM10Xo5ZHJSRthNACVpHtbU/k=
 github.com/ebarkie/http v1.0.2 h1:LNZ09kMeMlkTDLqiAEo+AopuZ7maTRW3PLkcWy6+ZUc=
 github.com/ebarkie/http v1.0.2/go.mod h1:NhM7TxZn7NJLoR2lY3WhaV+tZbL0BlAVdFQFbrI+R8I=
 github.com/ebarkie/weathercloud v1.0.2 h1:wPdjHk6CWzeL/VTu0jcOg9pq8yocb610o2dPJmZ6sMQ=
