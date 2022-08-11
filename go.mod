@@ -11,4 +11,4 @@ require (
 
 require github.com/ebarkie/http v1.0.2 // indirect
 
-go 1.18
+go 1.19
