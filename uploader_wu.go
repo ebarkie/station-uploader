@@ -19,7 +19,7 @@ type WUUploader struct{}
 func (WUUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 	w := wunderground.Pws{ID: up.ID, Password: up.Password}
 	w.SoftwareType = "GoWunder 1337." + version
-	w.Interval = up.Interval / time.Second
+	w.Interval = up.Interval
 
 	wx := &wunderground.Wx{}
 
