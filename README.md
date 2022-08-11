@@ -39,20 +39,20 @@ station:
 uploaders:
   - name: APRS-IS
     type: aprs-is
-    interval: 3600
+    interval: 1h
     dial: tcp://rotate.aprs.net:14580
     id: N0CALL-13
     password: -1
 
   - name: APRS-RF
     type: aprs
-    interval: 3600
+    interval: 1h
     dial: direwolf:8001
     id: N0CALL-13
 
   - name: CWOP
     type: aprs-is
-    interval: 300
+    interval: 5m
     dial: tcp://cwop.aprs.net:14580
     id: aWnnnn
 
@@ -61,19 +61,19 @@ uploaders:
 
   - name: Weathercloud
     type: wc
-    interval: 600
+    interval: 5m
     id: 0123
     password: deadbeef
 
   - name: Windy
     type: windy
-    interval: 300
+    interval: 5m
     id: 0
     password: deadbeef
 
   - name: Wunderground
     type: wu
-    interval: 0
+    interval: 0s
     id: Kssssssnn
     password: deadbeef
 ```
