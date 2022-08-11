@@ -28,7 +28,7 @@ func (NullUploader) Upload(_ ConfigStation, up ConfigUploader, uc upChan) {
 		Info.Printf("%s upload fired", up.Name)
 		ok <- 1
 
-		t.Reset(up.Interval * time.Second)
+		t.Reset(up.Interval)
 	}
 
 }

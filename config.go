@@ -38,7 +38,7 @@ type ConfigUploader struct {
 func readConfig(file string) (c config) {
 	// Defaults
 	for i := range c.Uploaders {
-		c.Uploaders[i].Interval = 1800
+		c.Uploaders[i].Interval = 30 * time.Minute
 	}
 
 	yamlFile, err := os.ReadFile(file)

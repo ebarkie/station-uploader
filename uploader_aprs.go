@@ -82,6 +82,6 @@ func (APRSUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) 
 			ok <- 1
 		}
 
-		t.Reset(up.Interval * time.Second)
+		t.Reset(up.Interval)
 	}
 }

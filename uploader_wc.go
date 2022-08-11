@@ -18,8 +18,8 @@ type WCUploader struct{}
 func (WCUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 	// Upload interval can not be shorter than 10 minutes.
 	interval := up.Interval
-	if interval < 600 {
-		interval = 600
+	if interval < 10 * time.Minute {
+		interval = 10 * time.Minute
 	}
 
 	d := weathercloud.Device{WID: up.ID, Key: up.Password}
@@ -75,6 +75,6 @@ func (WCUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan) {
 			ok <- 1
 		}
 
-		t.Reset(interval * time.Second)
+		t.Reset(interval)
 	}
 }
