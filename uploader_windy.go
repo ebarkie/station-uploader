@@ -77,6 +77,6 @@ func (WindyUploader) Upload(station ConfigStation, up ConfigUploader, uc upChan)
 			ok <- 1
 		}
 
-		t.Reset(interval * time.Second)
+		t.Reset(interval)
 	}
 }
