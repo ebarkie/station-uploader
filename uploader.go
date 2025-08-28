@@ -18,5 +18,4 @@ var uploaders = map[string]Uploader{
 	"NULL":    NullUploader{},
 	"WC":      WCUploader{},
 	"WINDY":   WindyUploader{},
-	"WU":      WUUploader{},
 }
