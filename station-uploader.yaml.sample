@@ -38,9 +38,3 @@ uploaders:
 #    interval: 5m
 #    id: 0
 #    password: deadbeef
-
-#  - name: Wunderground
-#    type: wu
-#    interval: 0s
-#    id: Kssssssnn
-#    password: deadbeef

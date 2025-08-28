@@ -11,8 +11,6 @@ github.com/ebarkie/weatherlink v1.0.9 h1:uPDC4EiEpAgXUf2dulfCPBo5189CVRDB8QoA3Z+
 github.com/ebarkie/weatherlink v1.0.9/go.mod h1:PyxCfM38gqkEk11AEisc71c1QXhCRINu5HC0I3iyjgE=
 github.com/ebarkie/windy v1.1.2 h1:/llGDyrK2oYldrpraOyTU8PPAHZze81dad9m+BLHPR4=
 github.com/ebarkie/windy v1.1.2/go.mod h1:ekgasJgwzf3mciUFmBxCcXmdFv3vL7nwSzC4y/x0oIg=
-github.com/ebarkie/wunderground v1.0.4 h1:xoDr9z0ihzOpMu/aHFiYlNz0S4oRAtbIzlsauynNAE8=
-github.com/ebarkie/wunderground v1.0.4/go.mod h1:1KFbYVgi8Hz8hC0ik0Ck7o91mzp6P3u52ChP5NYS7nQ=
 github.com/pkg/term v0.0.0-20180730021639-bffc007b7fd5/go.mod h1:eCbImbZ95eXtAUIbLAuAVnBnwf83mjf6QIVH8SHYwqQ=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
